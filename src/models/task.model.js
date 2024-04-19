@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+import activity from "./activities.model.js";
 
 const TaskSchema = new Schema({
     name: {
@@ -27,6 +28,12 @@ const TaskSchema = new Schema({
         type: Array,
         required: false,
     },
+    workload:{
+        type: Number,
+        required: false,
+        enum: [1,2,3,4,5]
+    },
+    activity:[activity.schema],
     dueDate: {
         startDate: {
             type: Date,
